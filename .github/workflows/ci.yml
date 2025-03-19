@@ -12,20 +12,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout репозитория
-        uses: actions/checkout@v4
-
-      - name: Установка Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Установка зависимостей
-        run: npm install
-
-      - name: Запуск тестов
-        run: npm test
-
-      - name: Сборка проекта
-        run: npm run build
+     steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - name: npm install
+      run: |
+        make install
+      env:
+        CI: true
+    - name: Run linter
+      run: |
+        make lint
