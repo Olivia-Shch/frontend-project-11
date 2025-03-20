@@ -1,21 +1,18 @@
-name: Node.js CI
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
-    steps:
+     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -29,6 +26,5 @@ jobs:
         make install
       env:
         CI: true
-    - name: Run linter
-      run: |
-        make lint
+    - name: Run ESLint
+        run: npx eslint --no-config-lookup --config .eslintrc.cjs . 
