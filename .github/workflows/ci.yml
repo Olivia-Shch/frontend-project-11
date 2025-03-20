@@ -27,4 +27,4 @@ jobs:
       env:
         CI: true
     - name: Run ESLint
-        run: npx eslint --no-config-lookup --config .eslintrc.cjs . 
+        run: npx eslint --no-config-lookup --config eslint.config.mjs .
