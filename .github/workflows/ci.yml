@@ -26,5 +26,6 @@ jobs:
         make install
       env:
         CI: true
-    - name: Run ESLint
-        run: npx eslint --no-config-lookup --config eslint.config.js --ignore-path .eslintignore 
+    - name: Run linter
+      run: |
+        make lint
