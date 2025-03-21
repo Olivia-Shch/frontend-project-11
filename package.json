@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "webpack serve",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint --no-config-lookup --config eslint.config.js ."
   },
   "author": "",
   "license": "ISC",
@@ -34,3 +35,4 @@
     "yup": "^1.6.1"
   }
 }
+
