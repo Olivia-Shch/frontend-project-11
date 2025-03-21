@@ -31,6 +31,7 @@ jobs:
         run: make install
         env:
           CI: true
-
+      - name: Debug ESLint Config
+        run: ls -la && cat eslint.config.mjs
       - name: Run ESLint
         run: npx eslint --no-config-lookup --config eslint.config.mjs .
