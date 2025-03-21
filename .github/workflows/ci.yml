@@ -33,4 +33,4 @@ jobs:
           CI: true
 
       - name: Run ESLint
-        run: npm run lint
+        run: npx eslint --no-config-lookup --config eslint.config.mjs .
