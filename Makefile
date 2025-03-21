@@ -12,6 +12,6 @@ test:
 	npm test
 
 lint:
-	npx eslint .
+	npx eslint --no-config-lookup --config eslint.config.js .
 
 .PHONY: test
