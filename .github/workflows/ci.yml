@@ -31,16 +31,5 @@ jobs:
         run: make install
         env:
           CI: true
-      - name: Check ESLint version
-        run: npx eslint -v
-
-      - name: Debug ESLint config
-        run: |
-          ls -la
-          cat eslint.config.js
-          npx eslint --print-config . || echo "Config not found"
-      - name: Run ESLint with Explicit Config
-        run: npx eslint --config eslint.config.js .
-
       - name: Run ESLint
         run: npx eslint --no-config-lookup --config eslint.config.js .
